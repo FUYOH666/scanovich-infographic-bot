@@ -1,0 +1,82 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+.venv/
+venv/
+ENV/
+env/
+
+# IDEs
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# Environment variables
+.env
+.env.local
+
+# Logs
+*.log
+logs/
+bot.log
+
+# Temporary files
+*.tmp
+temp/
+tmp/
+
+# OS
+.DS_Store
+Thumbs.db
+
+# Git
+.git/
+.gitignore
+
+# Project specific
+*.jpg
+*.png
+*.jpeg
+*.gif
+*.webp
+*.mp3
+*.wav
+*.ogg
+*.m4a
+*.flac
+image/
+
+# Scripts (не нужны в контейнере)
+start_bot.sh
+scripts/
+
+# Tests
+tests/
+.pytest_cache/
+
+# Documentation
+*.md
+!README.md
+

@@ -1,0 +1,40 @@
+version: '3.8'
+
+services:
+  bot:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: scanovich-content-bot
+    restart: unless-stopped
+    env_file:
+      - .env
+    volumes:
+      # Монтируем config.yaml для возможности изменения без пересборки
+      - ./config.yaml:/app/config.yaml:ro
+      # Монтируем логи (опционально, создайте директорию заранее)
+      - ./logs:/app/logs
+    # Примечание: для продакшена рекомендуется использовать внешнюю сеть
+    # если внешние сервисы также в Docker:
+    # networks:
+    #   - bot-network
+    #   - external-services-network
+    networks:
+      - bot-network
+    # Health check для мониторинга состояния бота
+    healthcheck:
+      test: ["CMD", "python", "-c", "import sys; sys.exit(0)"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+      start_period: 40s
+    # Примечание: внешние сервисы (ASR, VLLM, Redis) находятся на 100.93.82.48
+    # Убедитесь, что контейнер имеет доступ к этим сервисам через сеть
+
+networks:
+  bot-network:
+    driver: bridge
+    # Если внешние сервисы находятся в другой Docker сети, добавьте:
+    # external: true
+    # name: external-network-name
+

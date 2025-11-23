@@ -1,0 +1,33 @@
+# Configuration for Scanovich Content Bot
+
+asr:
+  host: "100.93.82.48"
+  port: 8001
+  timeout: 60
+  supported_formats: ["wav", "mp3", "ogg", "m4a", "flac", "webm"]
+
+vllm:
+  host: "100.93.82.48"
+  port: 8002
+  model: "models/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
+  timeout: 30
+  max_tokens: 2000
+
+gemini:
+  model: "gemini-3-pro-image-preview"
+  timeout: 120
+  image_size: "1K"
+
+telegram:
+  owner_id: 8347160745
+  owner_username: "WuWeiBuild"
+
+redis:
+  host: "100.93.82.48"
+  port: 6380
+  db: 0
+
+logging:
+  level: "INFO"
+  format: "text"
+
