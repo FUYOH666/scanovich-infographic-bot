@@ -58,13 +58,13 @@ cd /Users/aleksandrmordvinov/development/Scanovich-Content && ./start_bot.sh
 
 1. Клонировать репозиторий:
 ```bash
-git clone git@github.com:<username>/scanovich-infographic-bot.git
+git clone git@github.com:FUYOH666/scanovich-infographic-bot.git
 cd scanovich-infographic-bot
 ```
 
 **Примечание:** Репозиторий является приватным. Для доступа обратитесь к владельцу @WuWeiBuild.
 
-**GitHub репозиторий:** `scanovich-infographic-bot` (приватный)
+**GitHub репозиторий:** [scanovich-infographic-bot](https://github.com/FUYOH666/scanovich-infographic-bot) (приватный)
 
 2. Установить зависимости:
 ```bash
@@ -714,7 +714,7 @@ cd /Users/aleksandrmordvinov/development/Scanovich-Content && source .venv/bin/a
 **Владелец:** @WuWeiBuild  
 **Telegram:** [@WuWeiBuild](https://t.me/WuWeiBuild)  
 **Бот:** [@scanovich_imagecontent_bot](https://t.me/scanovich_imagecontent_bot)  
-**GitHub:** `scanovich-infographic-bot` (приватный репозиторий)
+**GitHub:** [scanovich-infographic-bot](https://github.com/FUYOH666/scanovich-infographic-bot) (приватный репозиторий)
 
 ## История изменений
 
