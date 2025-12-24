@@ -95,7 +95,7 @@ ASR_TIMEOUT=60
 # VLLM Service
 VLLM_HOST=your_vllm_host
 VLLM_PORT=8002
-VLLM_MODEL=models/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit
+VLLM_MODEL=Qwen3
 
 # Google Gemini
 GEMINI_API_KEY=your_gemini_api_key_here
