@@ -9,7 +9,7 @@ asr:
 vllm:
   host: "${VLLM_HOST:-localhost}"
   port: "${VLLM_PORT:-8002}"
-  model: "models/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit"
+  model: "Qwen3"
   timeout: 30
   max_tokens: 2000
 
