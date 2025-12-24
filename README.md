@@ -16,12 +16,12 @@ Telegram-бот "Карманная фотостудия для маркетпл
 ## Быстрый запуск
 
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content && source .venv/bin/activate && PYTHONPATH=. python -m src.bot.main
+cd /path/to/scanovich-infographic-bot && source .venv/bin/activate && PYTHONPATH=. python -m src.bot.main
 ```
 
 Или через скрипт:
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content && ./start_bot.sh
+cd /path/to/scanovich-infographic-bot && ./start_bot.sh
 ```
 
 ## Команды бота
@@ -62,9 +62,7 @@ git clone git@github.com:FUYOH666/scanovich-infographic-bot.git
 cd scanovich-infographic-bot
 ```
 
-**Примечание:** Репозиторий является приватным. Для доступа обратитесь к владельцу @WuWeiBuild.
-
-**GitHub репозиторий:** [scanovich-infographic-bot](https://github.com/FUYOH666/scanovich-infographic-bot) (приватный)
+**GitHub репозиторий:** [scanovich-infographic-bot](https://github.com/FUYOH666/scanovich-infographic-bot)
 
 2. Установить зависимости:
 ```bash
@@ -85,25 +83,25 @@ cp .env.example .env
 
 ```env
 # Telegram Bot
-TELEGRAM_BOT_TOKEN=your_bot_token
-TELEGRAM_OWNER_ID=8347160745
-TELEGRAM_OWNER_USERNAME=WuWeiBuild
+TELEGRAM_BOT_TOKEN=your_bot_token_here
+TELEGRAM_OWNER_ID=your_telegram_user_id
+TELEGRAM_OWNER_USERNAME=your_telegram_username
 
 # ASR Service
-ASR_HOST=100.93.82.48
+ASR_HOST=your_asr_host
 ASR_PORT=8001
 ASR_TIMEOUT=60
 
 # VLLM Service
-VLLM_HOST=100.93.82.48
+VLLM_HOST=your_vllm_host
 VLLM_PORT=8002
 VLLM_MODEL=models/Qwen3-30B-A3B-Instruct-2507-AWQ-4bit
 
 # Google Gemini
-GEMINI_API_KEY=your_gemini_api_key
+GEMINI_API_KEY=your_gemini_api_key_here
 
 # Redis
-REDIS_HOST=100.93.82.48
+REDIS_HOST=your_redis_host
 REDIS_PORT=6380
 REDIS_DB=0
 
@@ -176,8 +174,8 @@ docker-compose up -d --build
 2. **Клонирование и настройка:**
    ```bash
    # Клонировать репозиторий
-   git clone <repository-url>
-   cd Scanovich-Content
+   git clone git@github.com:FUYOH666/scanovich-infographic-bot.git
+   cd scanovich-infographic-bot
    
    # Создать .env файл из примера
    cp .env.example .env
@@ -191,13 +189,13 @@ docker-compose up -d --build
 3. **Проверка доступности внешних сервисов:**
    ```bash
    # Проверить доступность ASR (порт 8001)
-   curl http://100.93.82.48:8001/health
+   curl http://your-asr-host:8001/health
    
    # Проверить доступность VLLM (порт 8002)
-   curl http://100.93.82.48:8002/health
+   curl http://your-vllm-host:8002/health
    
    # Проверить доступность Redis (порт 6380)
-   redis-cli -h 100.93.82.48 -p 6380 ping
+   redis-cli -h your-redis-host -p 6380 ping
    ```
 
 4. **Сборка и запуск:**
@@ -238,20 +236,20 @@ docker-compose up -d --build
 
 ### Вариант 2: Через скрипт (локальная разработка)
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content
+cd /path/to/scanovich-infographic-bot
 ./start_bot.sh
 ```
 
 ### Вариант 3: Напрямую через Python
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content
+cd /path/to/scanovich-infographic-bot
 source .venv/bin/activate
 PYTHONPATH=. python -m src.bot.main
 ```
 
 ### Вариант 4: Одна команда из любого места
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content && source .venv/bin/activate && PYTHONPATH=. python -m src.bot.main
+cd /path/to/scanovich-infographic-bot && source .venv/bin/activate && PYTHONPATH=. python -m src.bot.main
 ```
 
 ### Важно: только один экземпляр бота
@@ -349,7 +347,7 @@ docker-compose up -d
 ## Структура проекта
 
 ```
-Scanovich-Content/
+scanovich-infographic-bot/
 ├── src/
 │   ├── bot/              # Основной код бота
 │   │   ├── handlers/     # Обработчики команд
@@ -480,7 +478,7 @@ Scanovich-Content/
 Для обнуления счетчиков запросов всех пользователей используйте скрипт:
 
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content
+cd /path/to/scanovich-infographic-bot
 source .venv/bin/activate
 PYTHONPATH=. python scripts/reset_user_requests.py
 ```
@@ -495,7 +493,7 @@ PYTHONPATH=. python scripts/reset_user_requests.py
 Вы можете напрямую подключиться к Redis и посмотреть данные:
 
 ```bash
-redis-cli -h 100.93.82.48 -p 6380
+redis-cli -h your-redis-host -p 6380
 ```
 
 **Полезные команды:**
@@ -556,9 +554,9 @@ uv run pyright src/
 ### Тестирование локально
 
 1. Убедитесь, что все сервисы доступны:
-   - ASR: `curl http://100.93.82.48:8001/health`
-   - VLLM: `curl http://100.93.82.48:8002/v1/models`
-   - Redis: `redis-cli -h 100.93.82.48 -p 6380 ping`
+   - ASR: `curl http://your-asr-host:8001/health`
+   - VLLM: `curl http://your-vllm-host:8002/v1/models`
+   - Redis: `redis-cli -h your-redis-host -p 6380 ping`
 
 2. Запустите бота и проверьте логи на наличие ошибок
 
@@ -674,7 +672,7 @@ pkill -f "src.bot.main"
 
 **Возможные причины:**
 - Неподдерживаемый формат аудио
-- ASR сервис недоступен (проверьте `http://100.93.82.48:8001/health`)
+- ASR сервис недоступен (проверьте `http://your-asr-host:8001/health`)
 - Таймаут запроса (увеличьте `ASR_TIMEOUT` в .env)
 
 ### Проблема: Ошибка при генерации изображения
@@ -695,7 +693,7 @@ pkill -f "src.bot.main"
 Если бот запущен в терминале, логи выводятся в консоль. Для сохранения в файл:
 
 ```bash
-cd /Users/aleksandrmordvinov/development/Scanovich-Content && source .venv/bin/activate && PYTHONPATH=. python -m src.bot.main 2>&1 | tee bot.log
+cd /path/to/scanovich-infographic-bot && source .venv/bin/activate && PYTHONPATH=. python -m src.bot.main 2>&1 | tee bot.log
 ```
 
 ## Безопасность
@@ -707,14 +705,28 @@ cd /Users/aleksandrmordvinov/development/Scanovich-Content && source .venv/bin/a
 
 ## Лицензия
 
-Приватный проект. Все права защищены.
+MIT License. См. файл [LICENSE](LICENSE) для подробностей.
 
 ## Контакты
 
 **Владелец:** @WuWeiBuild  
 **Telegram:** [@WuWeiBuild](https://t.me/WuWeiBuild)  
 **Бот:** [@scanovich_imagecontent_bot](https://t.me/scanovich_imagecontent_bot)  
-**GitHub:** [scanovich-infographic-bot](https://github.com/FUYOH666/scanovich-infographic-bot) (приватный репозиторий)
+**GitHub:** [scanovich-infographic-bot](https://github.com/FUYOH666/scanovich-infographic-bot)
+
+## 💼 Консультации и внедрение
+
+Готов помочь внедрить подобные AI-инструменты в ваши бизнес-процессы:
+
+- 🤖 **Разработка и интеграция AI-ботов** для маркетплейсов и e-commerce
+- 📊 **Автоматизация генерации контента** с использованием LLM и генеративных моделей
+- 🎨 **Создание систем для обработки изображений товаров** с инфографикой
+- 🔄 **Интеграция ASR, LLM и генеративных моделей** в существующие процессы
+- 🏗️ **Архитектура и разработка** комплексных AI-систем для бизнеса
+
+**Свяжитесь со мной для обсуждения вашего проекта:**
+- Telegram: [@WuWeiBuild](https://t.me/WuWeiBuild)
+- Email: [aleksandr@scanovich.ai](mailto:aleksandr@scanovich.ai)
 
 ## История изменений
 
@@ -726,4 +738,3 @@ cd /Users/aleksandrmordvinov/development/Scanovich-Content && source .venv/bin/a
 - ✅ Система аналитики и лимитов (10 запросов для обычных пользователей)
 - ✅ Команды `/stats` и `/user` для владельца
 - ✅ Docker контейнеризация для продакшена (Dockerfile + docker-compose.yml)
-
